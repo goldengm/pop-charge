@@ -17,6 +17,7 @@ if (typeof require.ensure !== 'function') {
 if (process.env.NODE_ENV !== 'production') {
   // Require async routes only in development for react-hot-reloader to work.
   require('./modules/App/pages/HomePage/HomePage');
+  require('./modules/PowerBank/pages/LendPage/LendPage');
 }
 
 // react-router setup with code-splitting
@@ -27,6 +28,14 @@ export default (
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
           cb(null, require('./modules/App/pages/HomePage/HomePage').default);
+        });
+      }}
+    />
+    <Route
+      path="/lend-battery"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require('./modules/PowerBank/pages/LendPage/LendPage').default);
         });
       }}
     />
