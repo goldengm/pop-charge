@@ -32,7 +32,7 @@ export default (
       }}
     />
     <Route
-      path="/lend-battery"
+      path="/lend-battery/sign/:sign/stationSn/:stationSn"
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
           cb(null, require('./modules/PowerBank/pages/LendPage/LendPage').default);

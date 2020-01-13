@@ -7,19 +7,14 @@ class LendPage extends React.Component {
   }
 
   render() {
+    const { sign, stationSn } = this.props.params;
 
-    const search = window.location.search;
-    const params = new URLSearchParams(search);
-    const sign = params.get('sign');
-    const stationSn = params.get('stationSn');
-    console.log(sign);
-
-    if (sign==undefined || sign=='') {
+    if (sign===undefined || sign==='') {
       return (
         <div>
           Loading now...
         </div>
-      )
+      );
     }
 
     return (
@@ -32,8 +27,11 @@ class LendPage extends React.Component {
           <strong>Station Sn:&nbsp;</strong>
           <span>{stationSn}</span>
         </p>
+        <p>
+          <button type="submit">Lend</button>
+        </p>
       </div>
-    )
+    );
   }
 }
 
